@@ -45,8 +45,9 @@ import androidx.compose.runtime.Composable
 import com.example.ui.state.QuranUiState
 import com.example.ui.state.PlaybackProgress
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
