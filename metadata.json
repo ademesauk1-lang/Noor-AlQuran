@@ -1,0 +1,6 @@
+{
+  "name": "Noor Al-Quran",
+  "description": "Comprehensive Quran Majeed application featuring Surahs, Juz navigation, Arabic Uthmani reader, and audio recitations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
