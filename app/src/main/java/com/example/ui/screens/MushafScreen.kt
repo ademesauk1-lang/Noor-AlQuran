@@ -248,7 +248,7 @@ fun MushafScreen(
                 state = pagerState,
                 // Keeps a neighbour page composed on each side so swiping never
                 // has to wait for a cold page load.
-                beyondBoundsPageCount = 1,
+                beyondViewportPageCount = 1,
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(paddingValues)
