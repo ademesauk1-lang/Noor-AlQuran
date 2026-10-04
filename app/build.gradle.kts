@@ -1,4 +1,6 @@
 import com.google.gms.googleservices.GoogleServicesPlugin.MissingGoogleServicesStrategy
+import java.io.File
+import java.util.Properties
 
 plugins {
   alias(libs.plugins.android.application)
@@ -23,16 +25,16 @@ plugins {
 //
 // When no keystore is configured we fall back to the debug key so that
 // `assembleRelease` (R8 / minified) still works on a fresh clone and in CI.
-val localKeystoreProperties = java.util.Properties().apply {
-  val file = rootProject.file("keystore.properties")
-  if (file.exists()) file.inputStream().use { load(it) }
+val localKeystoreProperties = Properties().apply {
+  val propsFile = rootProject.file("keystore.properties")
+  if (propsFile.exists()) propsFile.inputStream().use { load(it) }
 }
 
 fun signingValue(envName: String, propertyName: String): String? =
   System.getenv(envName)?.takeIf { it.isNotBlank() }
     ?: localKeystoreProperties.getProperty(propertyName)?.takeIf { it.isNotBlank() }
 
-val releaseKeystoreFile: java.io.File? = run {
+val releaseKeystoreFile: File? = run {
   val rawPath = signingValue("KEYSTORE_PATH", "KEYSTORE_PATH")
     ?: "${rootDir}/my-upload-key.jks"
   val candidate = file(rawPath)
